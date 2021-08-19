@@ -1,5 +1,5 @@
-import 'package:ecommerce_int2/app_properties.dart';
-import 'package:ecommerce_int2/screens/intro_page.dart';
+import '/app_properties.dart';
+import '/screens/intro_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pin_code_text_field/pin_code_text_field.dart';
@@ -105,20 +105,20 @@ class _ConfirmOtpPageState extends State<ConfirmOtpPage> {
       ),
     );
 
-    Widget otpCode = Container(
-      padding: const EdgeInsets.only(right: 28.0),
-      height: 190,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          otpBox(otp1),
-          otpBox(otp2),
-          otpBox(otp3),
-          otpBox(otp4),
-          otpBox(otp5)
-        ],
-      ),
-    );
+    // Widget otpCode = Container(
+    //   padding: const EdgeInsets.only(right: 28.0),
+    //   height: 190,
+    //   child: Row(
+    //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //     children: <Widget>[
+    //       otpBox(otp1),
+    //       otpBox(otp2),
+    //       otpBox(otp3),
+    //       otpBox(otp4),
+    //       otpBox(otp5)
+    //     ],
+    //   ),
+    // );
 
     Widget resendText = Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -178,8 +178,10 @@ class _ConfirmOtpPageState extends State<ConfirmOtpPage> {
                             highlightColor: Colors.white,
                             highlightAnimation: true,
                             highlightAnimationBeginColor: Colors.white,
-                            highlightAnimationEndColor: Theme.of(context).primaryColor,
-                            pinTextAnimatedSwitcherDuration: Duration(milliseconds: 500),
+                            highlightAnimationEndColor:
+                                Theme.of(context).primaryColor,
+                            pinTextAnimatedSwitcherDuration:
+                                Duration(milliseconds: 500),
                             wrapAlignment: WrapAlignment.center,
                             hasTextBorderColor: Colors.transparent,
                             highlightPinBoxColor: Colors.white,

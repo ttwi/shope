@@ -1,6 +1,6 @@
-import 'package:ecommerce_int2/app_properties.dart';
-import 'package:ecommerce_int2/models/user.dart';
-import 'package:ecommerce_int2/screens/request_money/receive_page.dart';
+import '/app_properties.dart';
+import '/models/user.dart';
+import '/screens/request_money/receive_page.dart';
 import 'package:flutter/material.dart';
 
 class QuickSendAmountPage extends StatelessWidget {
@@ -48,10 +48,8 @@ class QuickSendAmountPage extends StatelessWidget {
             IconButton(
               icon: Image.asset('assets/icons/cut_qr.png'),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                      builder: (_) =>
-                          ReceivePaymentPage(user)));
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (_) => ReceivePaymentPage(user)));
               },
             )
           ],
@@ -92,7 +90,7 @@ class QuickSendAmountPage extends StatelessWidget {
                                         CircleAvatar(
                                           maxRadius: 24,
                                           backgroundImage: NetworkImage(
-                                              user.picture.thumbnail),
+                                              user.picture),
                                         ),
                                         SizedBox(width: 16.0),
                                         Column(

@@ -1,6 +1,6 @@
-import 'package:ecommerce_int2/app_properties.dart';
-import 'package:ecommerce_int2/models/user.dart';
-import 'package:ecommerce_int2/screens/request_money/receive_page.dart';
+import '/app_properties.dart';
+import '/models/user.dart';
+import '/screens/request_money/receive_page.dart';
 import 'package:flutter/material.dart';
 
 class RequestAmountPage extends StatelessWidget {
@@ -10,7 +10,7 @@ class RequestAmountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
+    //double width = MediaQuery.of(context).size.width;
     Widget viewProductButton = InkWell(
       onTap: () {},
       child: Container(
@@ -108,7 +108,7 @@ class RequestAmountPage extends StatelessWidget {
                                 CircleAvatar(
                                   maxRadius: 24,
                                   backgroundImage:
-                                      NetworkImage(user.picture.thumbnail),
+                                      NetworkImage(user.picture),
                                 ),
                                 SizedBox(width: 16.0),
                                 Column(

@@ -1,5 +1,5 @@
-import 'package:ecommerce_int2/app_properties.dart';
-import 'package:ecommerce_int2/screens/payment/promo_item.dart';
+import '/app_properties.dart';
+import '/screens/payment/promo_item.dart';
 import 'package:flutter/material.dart';
 
 class UnpaidPage extends StatefulWidget {
@@ -8,7 +8,7 @@ class UnpaidPage extends StatefulWidget {
 }
 
 class _UnpaidPageState extends State<UnpaidPage> {
-  Color active;
+  Color active = Colors.white;
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +29,8 @@ class _UnpaidPageState extends State<UnpaidPage> {
             ],
             borderRadius: BorderRadius.circular(9.0)),
         child: Center(
-          child: Text("Pay Now",
-              style: const TextStyle(
-                  color: const Color(0xfffefefe),
-                  fontWeight: FontWeight.w600,
-                  fontStyle: FontStyle.normal,
-                  fontSize: 20.0)),
+          child:
+              Text("Pay Now", style: const TextStyle(color: const Color(0xfffefefe), fontWeight: FontWeight.w600, fontStyle: FontStyle.normal, fontSize: 20.0)),
         ),
       ),
     );
@@ -44,7 +40,7 @@ class _UnpaidPageState extends State<UnpaidPage> {
         child: SafeArea(
           child: LayoutBuilder(
               builder: (_, constraints) => SingleChildScrollView(
-                physics: ClampingScrollPhysics(),
+                  physics: ClampingScrollPhysics(),
                   child: ConstrainedBox(
                       constraints: BoxConstraints(
                         minHeight: constraints.maxHeight,
@@ -76,9 +72,7 @@ class _UnpaidPageState extends State<UnpaidPage> {
                               decoration: BoxDecoration(
                                   color: Colors.white,
                                   boxShadow: shadow,
-                                  borderRadius: BorderRadius.only(
-                                      bottomLeft: Radius.circular(10),
-                                      bottomRight: Radius.circular(10))),
+                                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10))),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
@@ -100,16 +94,14 @@ class _UnpaidPageState extends State<UnpaidPage> {
                                   ),
                                   Divider(),
                                   ListTile(
-                                    title: Text('Total',style:
-                                      TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold
-                                      ),),
-                                    trailing: Text('\$ 66.93',style:
-                                    TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold
-                                    ),),
+                                    title: Text(
+                                      'Total',
+                                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                                    ),
+                                    trailing: Text(
+                                      '\$ 66.93',
+                                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                                    ),
                                   )
                                 ],
                               ),

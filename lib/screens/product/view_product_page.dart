@@ -1,6 +1,6 @@
-import 'package:ecommerce_int2/models/product.dart';
-import 'package:ecommerce_int2/screens/product/components/rating_bottomSheet.dart';
-import 'package:ecommerce_int2/screens/search_page.dart';
+import '/models/product.dart';
+import '/screens/product/components/rating_bottomSheet.dart';
+import '/screens/search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -12,20 +12,21 @@ import 'components/product_options.dart';
 class ViewProductPage extends StatefulWidget {
   final Product product;
 
-  ViewProductPage({Key key, this.product}) : super(key: key);
+  ViewProductPage({Key? key, required this.product}) : super(key: key);
 
   @override
   _ViewProductPageState createState() => _ViewProductPageState(product);
 }
 
+//
+// _ViewProductPageState
+//
 class _ViewProductPageState extends State<ViewProductPage> {
-  final Product product;
-
-  _ViewProductPageState(this.product);
-
+  late final Product product;
+  int active = 0;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-  int active;
+  _ViewProductPageState(this.product);
 
   ///list of product colors
   List<Widget> colors() {
@@ -80,18 +81,16 @@ class _ViewProductPageState extends State<ViewProductPage> {
           iconTheme: IconThemeData(color: darkGrey),
           actions: <Widget>[
             IconButton(
-              icon: new SvgPicture.asset('assets/icons/search_icon.svg', fit: BoxFit.scaleDown,),
-              onPressed: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => SearchPage())),
+              icon: new SvgPicture.asset(
+                'assets/icons/search_icon.svg',
+                fit: BoxFit.scaleDown,
+              ),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => SearchPage())),
             )
           ],
           title: Text(
             'Headphones',
-            style: const TextStyle(
-                color: darkGrey,
-                fontWeight: FontWeight.w500,
-                fontFamily: "Montserrat",
-                fontSize: 18.0),
+            style: const TextStyle(color: darkGrey, fontWeight: FontWeight.w500, fontFamily: "Montserrat", fontSize: 18.0),
           ),
         ),
         body: SingleChildScrollView(
@@ -108,29 +107,21 @@ class _ViewProductPageState extends State<ViewProductPage> {
                   padding: const EdgeInsets.all(24.0),
                   child: Row(mainAxisSize: MainAxisSize.min, children: <Widget>[
                     Flexible(
-                      child: ColorList([
-                        Colors.red,
-                        Colors.blue,
-                        Colors.purple,
-                        Colors.green,
-                        Colors.yellow
-                      ]),
+                      child: ColorList([Colors.red, Colors.blue, Colors.purple, Colors.green, Colors.yellow]),
                     ),
                     RawMaterialButton(
                       onPressed: () {
                         showModalBottomSheet(
-                            context: context,
-                            builder: (context) {
-                              return RatingBottomSheet();
-                            },
-                            //elevation: 0,
-                            //backgroundColor: Colors.transparent
+                          context: context,
+                          builder: (context) {
+                            return RatingBottomSheet();
+                          },
+                          //elevation: 0,
+                          //backgroundColor: Colors.transparent
                         );
                       },
-                      constraints:
-                          const BoxConstraints(minWidth: 45, minHeight: 45),
-                      child: Icon(Icons.favorite,
-                          color: Color.fromRGBO(255, 137, 147, 1)),
+                      constraints: const BoxConstraints(minWidth: 45, minHeight: 45),
+                      child: Icon(Icons.favorite, color: Color.fromRGBO(255, 137, 147, 1)),
                       elevation: 0.0,
                       shape: CircleBorder(),
                       fillColor: Color.fromRGBO(255, 255, 255, 0.4),

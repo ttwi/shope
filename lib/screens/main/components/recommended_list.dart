@@ -1,11 +1,14 @@
-import 'package:ecommerce_int2/app_properties.dart';
-import 'package:ecommerce_int2/models/product.dart';
-import 'package:ecommerce_int2/screens/product/product_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import '/app_properties.dart';
+import '/models/product.dart';
+import '/screens/product/product_page.dart';
 
+//
+// RecommendedList
+//
 class RecommendedList extends StatelessWidget {
-  List<Product> products = [
+  final List<Product> products = [
     Product('assets/bag_1.png', 'Bag', 'Beautiful bag', 2.33),
     Product('assets/cap_5.png', 'Cap', 'Cap with beautiful design', 10),
     Product('assets/jeans_1.png', 'Jeans', 'Jeans for you', 20),
@@ -15,8 +18,6 @@ class RecommendedList extends StatelessWidget {
     Product('assets/ring_1.png', 'Silver Ring', 'Description', 52.33),
     Product('assets/shoeman_7.png', 'Shoes', 'Description', 62.33),
     Product('assets/headphone_9.png', 'Headphones', 'Description', 72.33),
-
-
   ];
 
   @override
@@ -38,10 +39,7 @@ class RecommendedList extends StatelessWidget {
               Center(
                   child: Text(
                 'Recommended',
-                style: TextStyle(
-                    color: darkGrey,
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold),
+                style: TextStyle(color: darkGrey, fontSize: 16.0, fontWeight: FontWeight.bold),
               )),
             ],
           ),
@@ -50,31 +48,23 @@ class RecommendedList extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.only(top: 16.0, right: 16.0, left: 16.0),
             child: StaggeredGridView.countBuilder(
-    physics: NeverScrollableScrollPhysics(),
+              physics: NeverScrollableScrollPhysics(),
               padding: EdgeInsets.zero,
               crossAxisCount: 4,
               itemCount: products.length,
               itemBuilder: (BuildContext context, int index) => new ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    child: InkWell(
-                      onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(builder: (_) => ProductPage(product:products[index]))),
-                      child: Container(
-                          decoration: BoxDecoration(
-                            gradient: RadialGradient(
-                                colors: [Colors.grey[500], Colors.grey[700]],
-                                center: Alignment(0, 0),
-                                radius: 0.6,
-                                focal: Alignment(0, 0),
-                                focalRadius: 0.1),
-                          ),
-                          child: Hero(
-                              tag: products[index].image,
-                              child: Image.asset(products[index].image))),
-                    ),
-                  ),
-              staggeredTileBuilder: (int index) =>
-                  new StaggeredTile.count(2, index.isEven ? 3 : 2),
+                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                child: InkWell(
+                  onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => ProductPage(product: products[index]))),
+                  child: Container(
+                      decoration: BoxDecoration(
+                        gradient: RadialGradient(
+                            colors: [Colors.grey[500]!, Colors.grey[700]!], center: Alignment(0, 0), radius: 0.6, focal: Alignment(0, 0), focalRadius: 0.1),
+                      ),
+                      child: Hero(tag: products[index].image, child: Image.asset(products[index].image))),
+                ),
+              ),
+              staggeredTileBuilder: (int index) => new StaggeredTile.count(2, index.isEven ? 3 : 2),
               mainAxisSpacing: 4.0,
               crossAxisSpacing: 4.0,
             ),

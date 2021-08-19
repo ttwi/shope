@@ -1,8 +1,5 @@
-
-import 'package:ecommerce_int2/screens/splash_page.dart';
+import '/screens/splash_page.dart';
 import 'package:flutter/material.dart';
-
-
 
 void main() => runApp(MyApp());
 

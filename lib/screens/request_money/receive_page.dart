@@ -1,5 +1,5 @@
-import 'package:ecommerce_int2/app_properties.dart';
-import 'package:ecommerce_int2/models/user.dart';
+import '/app_properties.dart';
+import '/models/user.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -75,7 +75,7 @@ class ReceivePaymentPage extends StatelessWidget {
                                 CircleAvatar(
                                   maxRadius: 24,
                                   backgroundImage:
-                                      NetworkImage(user.picture.thumbnail),
+                                      NetworkImage(user.picture),
                                 ),
                                 SizedBox(width: 16.0),
                                 Column(
@@ -106,8 +106,7 @@ class ReceivePaymentPage extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 Text('Retry Again with new',
-                    style: TextStyle(
-                        color:Colors.white)),
+                    style: TextStyle(color: Colors.white)),
                 SizedBox(
                   width: 8.0,
                 ),
@@ -116,7 +115,7 @@ class ReceivePaymentPage extends StatelessWidget {
                     child: Text(
                       'QR code',
                       style: TextStyle(
-                        color:Colors.white,
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline),
                     ))

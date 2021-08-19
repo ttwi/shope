@@ -1,15 +1,15 @@
-import 'package:ecommerce_int2/app_properties.dart';
-import 'package:ecommerce_int2/custom_background.dart';
-import 'package:ecommerce_int2/models/product.dart';
-import 'package:ecommerce_int2/screens/category/category_list_page.dart';
-import 'package:ecommerce_int2/screens/notifications_page.dart';
-import 'package:ecommerce_int2/screens/profile_page.dart';
-import 'package:ecommerce_int2/screens/search_page.dart';
-import 'package:ecommerce_int2/screens/shop/check_out_page.dart';
-import 'package:ecommerce_int2/screens/tracking_page.dart';
+import '/app_properties.dart';
+import '/custom_background.dart';
+import '/models/product.dart';
+import '/screens/category/category_list_page.dart';
+import '/screens/notifications_page.dart';
+import '/screens/profile_page.dart';
+import '/screens/search_page.dart';
+import '/screens/shop/check_out_page.dart';
+//import '/screens/tracking_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
+//import 'package:flutter_swiper/flutter_swiper.dart';
 
 import 'components/custom_bottom_bar.dart';
 import 'components/product_list.dart';
@@ -41,11 +41,10 @@ List<Product> products = [
       152.99),
 ];
 
-class _MainPageState extends State<MainPage>
-    with TickerProviderStateMixin<MainPage> {
-  SwiperController swiperController;
-  TabController tabController;
-  TabController bottomTabController;
+class _MainPageState extends State<MainPage> with TickerProviderStateMixin<MainPage> {
+  //SwiperController swiperController;
+  late TabController tabController;
+  late TabController bottomTabController;
 
   @override
   void initState() {
@@ -61,12 +60,9 @@ class _MainPageState extends State<MainPage>
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          IconButton( onPressed: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => NotificationsPage())),
-              icon: Icon(Icons.notifications)),
+          IconButton(onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => NotificationsPage())), icon: Icon(Icons.notifications)),
           IconButton(
-              onPressed: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (_) => SearchPage())),
+              onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => SearchPage())),
               icon: SvgPicture.asset('assets/icons/search_icon.svg'))
         ],
       ),
@@ -103,9 +99,7 @@ class _MainPageState extends State<MainPage>
                 },
                 child: Text(
                   timelines[0],
-                  style: TextStyle(
-                      fontSize: timelines[0] == selectedTimeline ? 20 : 14,
-                      color: darkGrey),
+                  style: TextStyle(fontSize: timelines[0] == selectedTimeline ? 20 : 14, color: darkGrey),
                 ),
               ),
             ),
@@ -133,11 +127,7 @@ class _MainPageState extends State<MainPage>
                     ];
                   });
                 },
-                child: Text(timelines[1],
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: timelines[1] == selectedTimeline ? 20 : 14,
-                        color: darkGrey)),
+                child: Text(timelines[1], textAlign: TextAlign.center, style: TextStyle(fontSize: timelines[1] == selectedTimeline ? 20 : 14, color: darkGrey)),
               ),
             ),
             Flexible(
@@ -164,11 +154,7 @@ class _MainPageState extends State<MainPage>
                     ];
                   });
                 },
-                child: Text(timelines[2],
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        fontSize: timelines[2] == selectedTimeline ? 20 : 14,
-                        color: darkGrey)),
+                child: Text(timelines[2], textAlign: TextAlign.right, style: TextStyle(fontSize: timelines[2] == selectedTimeline ? 20 : 14, color: darkGrey)),
               ),
             ),
           ],
@@ -202,8 +188,7 @@ class _MainPageState extends State<MainPage>
           children: <Widget>[
             SafeArea(
               child: NestedScrollView(
-                headerSliverBuilder:
-                    (BuildContext context, bool innerBoxIsScrolled) {
+                headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
                   // These are the slivers that show up in the "outer" scroll view.
                   return <Widget>[
                     SliverToBoxAdapter(

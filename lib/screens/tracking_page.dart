@@ -1,4 +1,4 @@
-import 'package:ecommerce_int2/app_properties.dart';
+import '/app_properties.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -9,10 +9,8 @@ class TrackingPage extends StatefulWidget {
 
 class _TrackingPageState extends State<TrackingPage> {
   final List<Location> locations = [
-    Location('Kolkata Facility', DateTime(2019, 6, 5, 5, 23, 4),
-        showHour: false, isHere: false, passed: true),
-    Location('Hyderabad Facility', DateTime(2019, 6, 6, 5, 23, 4),
-        showHour: false, isHere: false, passed: true),
+    Location('Kolkata Facility', DateTime(2019, 6, 5, 5, 23, 4), showHour: false, isHere: false, passed: true),
+    Location('Hyderabad Facility', DateTime(2019, 6, 6, 5, 23, 4), showHour: false, isHere: false, passed: true),
     Location(
       'Chennai Facility',
       DateTime(2019, 6, 9, 5, 23, 4),
@@ -32,12 +30,9 @@ class _TrackingPageState extends State<TrackingPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-          color: Colors.grey[100],
-          image: DecorationImage(
-              image: AssetImage('assets/Group 444.png'), fit: BoxFit.contain)),
+      decoration: BoxDecoration(color: Colors.grey[100], image: DecorationImage(image: AssetImage('assets/Group 444.png'), fit: BoxFit.contain)),
       child: Container(
-        color:Colors.white54,
+        color: Colors.white54,
         child: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.transparent,
@@ -57,15 +52,13 @@ class _TrackingPageState extends State<TrackingPage> {
             ),
             body: SafeArea(
               child: LayoutBuilder(
-                builder:(_,constraints)=> Column(
+                builder: (_, constraints) => Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 16.0),
                       padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: DropdownButtonHideUnderline(
                         child: DropdownButton(
                           items: <String>[
@@ -82,12 +75,17 @@ class _TrackingPageState extends State<TrackingPage> {
                                   color: Colors.white,
                                   child: Align(
                                       alignment: Alignment.centerLeft,
-                                      child: Text(val,maxLines: 2,semanticsLabel: '...',overflow: TextOverflow.ellipsis,))),
+                                      child: Text(
+                                        val,
+                                        maxLines: 2,
+                                        semanticsLabel: '...',
+                                        overflow: TextOverflow.ellipsis,
+                                      ))),
                             );
                           }).toList(),
                           onChanged: (val) {
                             setState(() {
-                              selectedProduct = val;
+                              selectedProduct = val.toString();
                             });
                           },
                           value: selectedProduct,
@@ -96,46 +94,44 @@ class _TrackingPageState extends State<TrackingPage> {
                           elevation: 0,
                         ),
                       ),
-                    ),SingleChildScrollView(
-                        child: ConstrainedBox(
-                          constraints: BoxConstraints(maxHeight: constraints.maxHeight-48,),
-                          child: Theme(
-                            data:
-                                ThemeData(primaryColor: yellow, fontFamily: 'Montserrat'),
-                            child: Stepper(
+                    ),
+                    SingleChildScrollView(
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          maxHeight: constraints.maxHeight - 48,
+                        ),
+                        child: Theme(
+                          data: ThemeData(primaryColor: yellow, fontFamily: 'Montserrat'),
+                          child: Stepper(
 //                          physics: NeverScrollableScrollPhysics(),
-                              steps: [
-                                ...locations
-                                    .map(
-                                      (location) => Step(
-                                        isActive: location.isHere || location.passed,
-                                        title: Text(location.city),
-                                        subtitle: Text(location.getDate()),
-                                        content: Align(
-                                          child: Image.asset('assets/icons/truck.png'),
-                                          alignment: Alignment.centerLeft,
-                                        ),
-                                        state: location.passed
-                                            ? StepState.complete
-                                            : location.isHere
-                                                ? StepState.editing
-                                                : StepState.indexed,
+                            steps: [
+                              ...locations
+                                  .map(
+                                    (location) => Step(
+                                      isActive: location.isHere || location.passed,
+                                      title: Text(location.city),
+                                      subtitle: Text(location.getDate()),
+                                      content: Align(
+                                        child: Image.asset('assets/icons/truck.png'),
+                                        alignment: Alignment.centerLeft,
                                       ),
-                                    )
-                                    .toList()
-                              ],
-                              currentStep: locations
-                                  .indexOf(locations.firstWhere((loc) => loc.isHere)),
-                              controlsBuilder: (BuildContext context,
-                                  {VoidCallback onStepContinue,
-                                  VoidCallback onStepCancel}) {
-                                return Container();
-                              },
-                            ),
+                                      state: location.passed
+                                          ? StepState.complete
+                                          : location.isHere
+                                              ? StepState.editing
+                                              : StepState.indexed,
+                                    ),
+                                  )
+                                  .toList()
+                            ],
+                            currentStep: locations.indexOf(locations.firstWhere((loc) => loc.isHere)),
+                            controlsBuilder: (BuildContext context, {VoidCallback? onStepContinue, VoidCallback? onStepCancel}) {
+                              return Container();
+                            },
                           ),
                         ),
                       ),
-
+                    ),
                   ],
                 ),
               ),
@@ -152,8 +148,7 @@ class Location {
   bool isHere;
   bool passed;
 
-  Location(this.city, this.date,
-      {this.showHour = false, this.isHere = false, this.passed = false});
+  Location(this.city, this.date, {this.showHour = false, this.isHere = false, this.passed = false});
 
   String getDate() {
     if (showHour) {

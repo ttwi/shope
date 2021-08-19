@@ -1,6 +1,6 @@
-import 'package:ecommerce_int2/app_properties.dart';
-import 'package:ecommerce_int2/screens/rating/rating_page.dart';
-import 'package:ecommerce_int2/screens/tracking_page.dart';
+import '/app_properties.dart';
+import '/screens/rating/rating_page.dart';
+import '/screens/tracking_page.dart';
 import 'package:flutter/material.dart';
 
 class NotificationsPage extends StatelessWidget {
@@ -253,7 +253,7 @@ class NotificationsPage extends StatelessWidget {
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 10)),
-                                  SizedBox(height:4.0),
+                                  SizedBox(height: 4.0),
                                   Text(
                                       'Your package has been delivered. Thanks for shopping!',
                                       style: TextStyle(
@@ -333,7 +333,7 @@ class NotificationsPage extends StatelessWidget {
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 10)),
-                                  SizedBox(height:4.0),
+                                  SizedBox(height: 4.0),
                                   Text(
                                       'Your package has been dispatched. You can keep track of your product.',
                                       style: TextStyle(
@@ -344,7 +344,8 @@ class NotificationsPage extends StatelessWidget {
                           ),
                           InkWell(
                             onTap: () => Navigator.of(context).push(
-                                MaterialPageRoute(builder: (_) => TrackingPage())),
+                                MaterialPageRoute(
+                                    builder: (_) => TrackingPage())),
                             child: Container(
                                 padding: const EdgeInsets.all(14.0),
                                 decoration: BoxDecoration(

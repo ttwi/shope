@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:ecommerce_int2/app_properties.dart';
+import '/app_properties.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -47,8 +47,8 @@ class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         iconTheme: IconThemeData(
-            color: Colors.black,
-          ),
+          color: Colors.black,
+        ),
         brightness: Brightness.light,
         backgroundColor: Colors.transparent,
         title: Text(
@@ -60,7 +60,7 @@ class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
       body: SafeArea(
         bottom: true,
         child: Padding(
-          padding: const EdgeInsets.only(top:24.0,left: 24.0, right: 24.0),
+          padding: const EdgeInsets.only(top: 24.0, left: 24.0, right: 24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -90,9 +90,10 @@ class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
                       trailing: platformSwitch(newOffers),
                     ),
                     ListTile(
-                      title: Text('Feedbacks and Reviews'),
-                      trailing: platformSwitch(feedbackReviews,)
-                    ),
+                        title: Text('Feedbacks and Reviews'),
+                        trailing: platformSwitch(
+                          feedbackReviews,
+                        )),
                     ListTile(
                       title: Text('Updates'),
                       trailing: platformSwitch(updates),
